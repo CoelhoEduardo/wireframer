@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <i class="ri-menu-line"></i>
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="img/logo.png" alt="logo image" />
+                </div>
+                <h1 id="logo-txt">Wireframe</h1>
+            </div>
+        </div>
+    </div>
+    <div class="body-container">
+        <div class="sidebar">
+            <ul class="sidebar-items">
+                <li><a class="sidebar-item" href="#/videos" onclick="showSection('videos')"><i
+                            class="ri-video-line"></i>Videos</a></li>
+                <li><a class="sidebar-item" href="#/favoritos" onclick="showSection('favorites')"><i
+                            class="ri-star-line"></i>Favoritos <span class="counter-favorite" id="favoritesCounter">
+                            <p class="counter-text">0</p>
+                        </span> </a></li>
+            </ul>
+        </div>
+        <div class="content" id="videosSection">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search videos">
+                <button class="search-btn" onclick="searchVideos()"><i class="ri-search-line"></i></button>
+            </div>
+            <div class="video-container" id="videosList"></div>
+        </div>
+        <div class="content" id="favoritesSection" style="display:none;">
+            <div class="video-container" id="favoritesList"></div>
+        </div>
+    </div>
+</body>
+
+</html>
