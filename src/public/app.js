@@ -18,6 +18,14 @@ function searchVideos() {
     .then((data) => renderVideos(data.items));
 }
 
+document
+  .getElementById("searchInput")
+  .addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      searchVideos();
+    }
+  });
+
 function formatISODateToReadable(dateISOString) {
   const date = new Date(dateISOString);
   const options = { year: "numeric", month: "long", day: "numeric" };
