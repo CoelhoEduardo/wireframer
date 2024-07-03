@@ -26,6 +26,9 @@ function formatISODateToReadable(dateISOString) {
 
 function renderVideos(videos) {
   const videosList = document.getElementById("videosList");
+  videosList
+    ? (videosList.innerHTML = "")
+    : console.log('Element with ID "videoList" not found');
   videos.forEach((video) => {
     const date = formatISODateToReadable(video.snippet.publishTime);
     const videoElement = document.createElement("div");
@@ -71,6 +74,9 @@ function toggleFavorite(videoId, title) {
 
 function renderFavorites() {
   const favoritesList = document.getElementById("favoritesList");
+  favoritesList
+    ? (favoritesList.innerHTML = "")
+    : console.log('Element with ID "favoriteList" not found');
   document.getElementById(
     "favoritesCounter"
   ).textContent = `${favorites.length}`;
@@ -87,9 +93,10 @@ function renderFavorites() {
                           </div>
                       </div>
                       <div class="favorite-btn-content">
-                          <button class="favorited favorite-btn" onclick="toggleFavorite('${favorite.id}', '${favorite.title}')">Remover Favorito ⭐</button>
+                          <button class="favorite-btn" onclick="toggleFavorite('${favorite.id}', '${favorite.title}')">Remover Favorito ⭐</button>
                       </div>
-                    </div>`;
+                    </div>
+    `;
     favoritesList.appendChild(favoriteElement);
   });
 }

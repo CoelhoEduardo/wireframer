@@ -9,11 +9,10 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-  <script src="app.js" defer></script>
 </head>
 
 <body>
-  <div class="header">
+  <header class="header">
     <div class="logo-container">
       <i class="ri-menu-line"></i>
       <div class="logo">
@@ -23,9 +22,9 @@
         <h1 id="logo-txt">Wireframe</h1>
       </div>
     </div>
-  </div>
+  </header>
   <div class="body-container">
-    <div class="sidebar">
+    <nav class="sidebar">
       <ul class="sidebar-items">
         <li>
           <a class="sidebar-item" href="#/videos" onclick="showSection('videos')">
@@ -39,18 +38,19 @@
           </a>
         </li>
       </ul>
-    </div>
-    <div class="content" id="videosSection">
+    </nav>
+    <section class="content" id="videosSection">
       <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search videos">
         <button class="search-btn" onclick="searchVideos()"><i class="ri-search-line"></i></button>
       </div>
       <div class="video-container" id="videosList"></div>
-    </div>
-    <div class="content" id="favoritesSection" style="display:none;">
+    </section>
+    <section class="content" id="favoritesSection" style="display:none;">
       <div class="video-container" id="favoritesList"></div>
-    </div>
+    </section>
   </div>
+  <script src="app.js"></script>
 </body>
 
 </html>
