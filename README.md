@@ -73,4 +73,4 @@
 
 2. Resultado esperado:
 
-    ![test_result]()
+    ![Jest test expected results](https://github.com/CoelhoEduardo/wireframer/assets/76714413/1e745b1b-f735-4c3c-8e91-a999e9a4755c)
