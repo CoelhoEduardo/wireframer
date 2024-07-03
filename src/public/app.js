@@ -26,7 +26,6 @@ function formatISODateToReadable(dateISOString) {
 
 function renderVideos(videos) {
   const videosList = document.getElementById("videosList");
-  videosList.innerHTML = "";
   videos.forEach((video) => {
     const date = formatISODateToReadable(video.snippet.publishTime);
     const videoElement = document.createElement("div");
@@ -75,7 +74,6 @@ function toggleFavorite(videoId, title) {
 
 function renderFavorites() {
   const favoritesList = document.getElementById("favoritesList");
-  favoritesList.innerHTML = "";
   document.getElementById(
     "favoritesCounter"
   ).textContent = `${favorites.length}`;
@@ -101,3 +99,5 @@ function renderFavorites() {
     favoritesList.appendChild(favoriteElement);
   });
 }
+
+module.exports = { showSection, searchVideos };
