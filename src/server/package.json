@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Microfront to consume Youtube search API",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "test": "jest",

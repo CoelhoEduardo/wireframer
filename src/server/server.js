@@ -1,12 +1,19 @@
-require("dotenv").config();
+import dotenv from "dotenv";
 import express from "express";
-import { get } from "axios";
+import axios from "axios";
 import { join } from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+dotenv.config();
 
 const app = express();
 const PORT = 3000;
 const baseApiUrl = "https://www.googleapis.com/youtube/v3";
 const api_key = process.env.API_KEY;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.use(express.static(join(__dirname, "..", "public")));
 
@@ -18,7 +25,7 @@ app.get("/videos", async (req, res) => {
   const searchQuery = req.query.q;
   const url = `${baseApiUrl}/search?part=snippet&q=${searchQuery}&maxResults=21&type=video&key=${api_key}`;
   try {
-    const response = await get(url);
+    const response = await axios.get(url);
     res.json(response.data);
   } catch (error) {
     console.error("Error fetching YouTube data:", error);

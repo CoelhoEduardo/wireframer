@@ -30,7 +30,6 @@ function renderVideos(videos) {
     const date = formatISODateToReadable(video.snippet.publishTime);
     const videoElement = document.createElement("div");
     videoElement.innerHTML = `
-                <div class="video-content-cover">
                     <div class="video-content">
                         <div class="video-box">
                             <iframe width="360" height="180" src="https://www.youtube.com/embed/${video.id.videoId}" frameborder="0" allowfullscreen></iframe>
@@ -39,17 +38,15 @@ function renderVideos(videos) {
                             <div class="detail">
                                 <h3 class="title">${video.snippet.title}</h3>
                                 <div class="channel-name">${video.snippet.channelTitle}</div>
-                                <div class="views-upload">
-                                    <div class="upload">${date}</div>
+                                <div class="upload-date">
+                                    <div>${date}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="favorite-btn-content">
                             <button class="favorite-btn" data-video-id="${video.id.videoId}" onclick="toggleFavorite('${video.id.videoId}', '${video.snippet.title}')">Favoritar <i class="ri-star-fill"></i></button>
                         </div>
-                    </div>
-                </div>
-                `;
+                    </div>`;
     videosList.appendChild(videoElement);
   });
 }
@@ -80,22 +77,19 @@ function renderFavorites() {
   favorites.forEach((favorite) => {
     const favoriteElement = document.createElement("div");
     favoriteElement.innerHTML = `
-                <div class="video-content-cover">
                     <div class="video-content">
-                        <div class="video-box">
-                            <iframe width="360" height="180" src="https://www.youtube.com/embed/${favorite.id}" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="video-details"> 
-                            <div class="detail">
-                                <h3 class="title">${favorite.title}</h3>
-                            </div>
-                        </div>
-                        <div class="favorite-btn-content">
-                            <button class="favorited favorite-btn" onclick="toggleFavorite('${favorite.id}', '${favorite.title}')">Remover Favorito ⭐</button>
-                        </div>
-                    </div>
-                </div>
-                `;
+                      <div class="video-box">
+                          <iframe width="360" height="180" src="https://www.youtube.com/embed/${favorite.id}" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-details"> 
+                          <div class="detail">
+                              <h3 class="title">${favorite.title}</h3>
+                          </div>
+                      </div>
+                      <div class="favorite-btn-content">
+                          <button class="favorited favorite-btn" onclick="toggleFavorite('${favorite.id}', '${favorite.title}')">Remover Favorito ⭐</button>
+                      </div>
+                    </div>`;
     favoritesList.appendChild(favoriteElement);
   });
 }
